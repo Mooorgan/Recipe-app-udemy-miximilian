@@ -16,7 +16,7 @@ export class DropdownDirective {
   // constructor() {}
 
   @HostListener('document:click', ['$event']) toggleOpen(event: Event) {
-    event.preventDefault();
+    // event.preventDefault(); //BUG!! This line wil prevent ngSubmit on Button form Template Driven shopping-edit.component.ts
     // event.stopImmediatePropagation();
     // console.log(event);
     // console.log(event.target);
