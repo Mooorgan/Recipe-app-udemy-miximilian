@@ -1,48 +1,38 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 // import { RecipesComponent } from './recipes/recipes.component';
 
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { DropdownDirective } from './shared/dropdown.directive';
+// import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+
 import { AppRoutingModule } from './app-routing.module';
 
-import { AuthComponent } from './auth/auth.component';
-import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
-import { AuthInterceptor } from './auth/auth.interceptor';
-import { AlertComponent } from './alert/alert.component';
-import { PlaceholderDirective } from './shared/placeholder.directive';
-import { RecipesModule } from './recipes/recipes.module';
+// import { AuthComponent } from './auth/auth.component';
+// import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+// import { AuthInterceptor } from './auth/auth.interceptor';
+
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core.module';
+// import { LoggingService } from './logging.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-
-    ShoppingListComponent,
-    ShoppingEditComponent,
-    DropdownDirective,
-    AuthComponent,
-    LoadingSpinnerComponent,
-    AlertComponent,
-    PlaceholderDirective,
-  ],
+  declarations: [AppComponent, HeaderComponent],
   imports: [
-    AppRoutingModule,
-    RecipesModule,
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
+    AppRoutingModule,
+    CoreModule,
     HttpClientModule,
+    //These are lazily loaded!!!
+    // RecipesModule,
+    // ShoppingListModule,
+    // AuthModule,
+    SharedModule,
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-  ],
+  // providers: [LoggingService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
