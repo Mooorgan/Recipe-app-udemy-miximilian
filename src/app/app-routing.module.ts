@@ -18,6 +18,11 @@ const appRoutes: Routes = [
       // const m = await import('./recipes/recipes.module');
       // return m.RecipesModule;
       return (await import('./recipes/recipes.module')).RecipesModule;
+      //-----------------------------------------------------------------------------------------------
+      //--Here Importing RoutingModule DoesNot Work cause RecipesModule declare components,import other modules too and also cause of RouterModule. I don't understand why importing routingModule was working in Maximilian Standalone app
+      // return (await import('./recipes/recipes-routing.module')) //Error!!!
+      //   .RecipesRoutingModule;
+      //---------------------------------------------------------------------------------------------
     },
   },
   {

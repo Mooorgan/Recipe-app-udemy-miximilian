@@ -17,7 +17,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
+import { StoreModule } from '@ngrx/store';
+import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer';
 // import { LoggingService } from './logging.service';
+
+import * as fromShoppingList from './shopping-list/store/shopping-list.reducer';
+import { AddIngredient } from './shopping-list/store/shopping-list.actions';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -31,6 +36,9 @@ import { CoreModule } from './core.module';
     // ShoppingListModule,
     // AuthModule,
     SharedModule,
+    StoreModule.forRoot<fromShoppingList.AppState, AddIngredient>({
+      shoppingList: shoppingListReducer,
+    }),
   ],
   // providers: [LoggingService],
   bootstrap: [AppComponent],

@@ -37,7 +37,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+    RouterModule.forChild(routes),
+    // ReactiveFormsModule,
+    // SharedModule,
+    // RouterModule,
+  ],
   exports: [RouterModule],
 })
 export class RecipesRoutingModule {}
