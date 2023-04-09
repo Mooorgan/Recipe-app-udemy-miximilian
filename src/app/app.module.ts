@@ -18,11 +18,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
 import { StoreModule } from '@ngrx/store';
-import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer';
+import { EffectsModule } from '@ngrx/effects';
+// import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer';
 // import { LoggingService } from './logging.service';
 
-import * as fromShoppingList from './shopping-list/store/shopping-list.reducer';
-import { AddIngredient } from './shopping-list/store/shopping-list.actions';
+// import * as fromShoppingList from './shopping-list/store/shopping-list.reducer';
+import * as fromApp from './store/app.reducer';
+import { AuthEffects } from './auth/store/auth.effects';
+// import { AddIngredient } from './shopping-list/store/shopping-list.actions';
+// import { authReducer } from './auth/store/auth.reducer';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -36,9 +40,12 @@ import { AddIngredient } from './shopping-list/store/shopping-list.actions';
     // ShoppingListModule,
     // AuthModule,
     SharedModule,
-    StoreModule.forRoot<fromShoppingList.AppState, AddIngredient>({
-      shoppingList: shoppingListReducer,
-    }),
+    // StoreModule.forRoot<fromShoppingList.AppState, AddIngredient>({
+    //   shoppingList: shoppingListReducer,
+    //   auth:authReducer
+    // }),
+    StoreModule.forRoot(fromApp.appReducer),
+    EffectsModule.forRoot([AuthEffects]),
   ],
   // providers: [LoggingService],
   bootstrap: [AppComponent],

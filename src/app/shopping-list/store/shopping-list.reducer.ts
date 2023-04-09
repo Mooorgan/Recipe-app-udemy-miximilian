@@ -21,9 +21,9 @@ export type MyShoppingListState = ModifyingTypeOfInitialState<
   Ingredient
 >;
 
-export type AppState = {
-  shoppingList: MyShoppingListState;
-};
+// export type AppState = {
+//   shoppingList: MyShoppingListState;
+// };
 
 export function shoppingListReducer(
   state: MyShoppingListState = initialState,
