@@ -28,6 +28,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import * as fromApp from './store/app.reducer';
 import { AuthEffects } from './auth/store/auth.effects';
 import { environment } from 'src/environments/environment';
+import { RecipeEffects } from './recipes/store/recipe.effects';
 // import { AddIngredient } from './shopping-list/store/shopping-list.actions';
 // import { authReducer } from './auth/store/auth.reducer';
 
@@ -48,7 +49,7 @@ import { environment } from 'src/environments/environment';
     //   auth:authReducer
     // }),
     StoreModule.forRoot(fromApp.appReducer),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, RecipeEffects]),
     StoreDevtoolsModule.instrument({ logOnly: environment.production }),
     StoreRouterConnectingModule.forRoot(),
   ],

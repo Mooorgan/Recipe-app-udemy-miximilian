@@ -12,7 +12,10 @@ const routes: Routes = [
     path: '',
     component: RecipesComponent,
     canActivate: [AuthGuard],
+    //when 'always', resolver run for every child routes
     runGuardsAndResolvers: 'always',
+    // runGuardsAndResolvers: 'always',
+
     resolve: [RecipesResolver],
     children: [
       {

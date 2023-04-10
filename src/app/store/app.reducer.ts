@@ -2,6 +2,7 @@ import * as fromShoppingList from '../shopping-list/store/shopping-list.reducer'
 import * as fromAuth from '../auth/store/auth.reducer';
 import { ActionReducerMap } from '@ngrx/store';
 import * as fromRouter from '@ngrx/router-store';
+import * as fromRecipes from '../recipes/store/recipe.reducer';
 // import {
 //   AddIngredient,
 //   ShoppingListActions,
@@ -11,6 +12,7 @@ import * as fromRouter from '@ngrx/router-store';
 export type AppState = {
   shoppingList: fromShoppingList.MyShoppingListState;
   auth: fromAuth.AuthSate;
+  recipes: fromRecipes.State;
   router: fromRouter.RouterReducerState;
 };
 
@@ -20,5 +22,6 @@ export type AppState = {
 export const appReducer: ActionReducerMap<AppState, any> = {
   shoppingList: fromShoppingList.shoppingListReducer,
   auth: fromAuth.authReducer,
+  recipes: fromRecipes.recipeReducer,
   router: fromRouter.routerReducer,
 };
